@@ -6,8 +6,16 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  devise_scope :user do
-    root to: "devise/registrations#new"
+  # devise_scope :user do
+  #   root to: "devise/registrations#new"
+  # end
+  # devise_scope :user do
+  #   root to: "devise/sessions#new"
+  # end
+
+  root 'movies#index'
+  authenticated :user do
+    root :to => 'movies#index', :as => :authenticated_root
   end
 
   # Example of regular route:
