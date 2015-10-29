@@ -1,10 +1,13 @@
 %h1 Listing movies
 
+#current_movie
+
 - @movies.each do |movie|
   .media
     .media-left
-      %a{:href => "#"}
-      = image_tag(movie.images[0]['url'])
+      %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
+        = image_tag(movie.images[0]['url'], size: 64, alt: "icon")
     .media-body
-      %h4.media-heading Media heading
-(
+      %h4.media-heading 
+        = movie.title
+      = movie.description
