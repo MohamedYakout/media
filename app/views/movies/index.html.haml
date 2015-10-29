@@ -1,33 +1,10 @@
 %h1 Listing movies
 
-%table
-  %thead
-    %tr
-      %th Url
-      %th Format
-      %th Width
-      %th Height
-      %th Langauge
-      %th Duration
-      %th Geolock
-      %th
-      %th
-      %th
-
-  %tbody
-    - @movies.each do |movie|
-      %tr
-        %td= movie.url
-        %td= movie.format
-        %td= movie.width
-        %td= movie.height
-        %td= movie.langauge
-        %td= movie.duration
-        %td= movie.geoLock
-        %td= link_to 'Show', movie
-        %td= link_to 'Edit', edit_movie_path(movie)
-        %td= link_to 'Destroy', movie, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Movie', new_movie_path
+- @movies.each do |movie|
+  .media
+    .media-left
+      %a{:href => "#"}
+      = image_tag(movie.images[0]['url'])
+    .media-body
+      %h4.media-heading Media heading
+(
