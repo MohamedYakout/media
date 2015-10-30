@@ -1,14 +1,15 @@
 #current_movie
-
-.row.slides-container
-  .col-md-12.col-panel
-    .panel.panel-primary
-      .panel-heading
-        %h3 Listing movies
-      .panel-body
-        .row.slider-movies-js.carsoule#movie_slider
-          - @movies.each do |movie|
-            .movie.col-lg-3.col-md-4.col-sm-12.col-xs-12
-              %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
-                %img{"data-lazy" => "#{movie.images[0]['url']}"}
-                = movie.title
+.container
+  .row
+    .col-md-12.col-panel
+      .slides-container
+        .panel.panel-primary
+          .panel-heading
+            %h3 Listing movies
+          .panel-body
+            .slider-movies-js.carsoule#movie_slider
+              - @movies.each do |movie|
+                .movie
+                  %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
+                    %img{"data-lazy" => "#{movie.images[0]['url']}"}
+                    = movie.title
