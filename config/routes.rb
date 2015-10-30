@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   root to: "devise/registrations#new"
   # end
-  # devise_scope :user do
-  #   root to: "devise/sessions#new"
-  # end
+  get 'users/watched_movies', :to => 'users#watched_movies'
 
   root 'movies#index'
   authenticated :user do
