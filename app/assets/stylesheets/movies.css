@@ -1,0 +1,28 @@
+.blue {
+    background: #3498db;
+    color: #fff;
+}
+.carsoule{
+    overflow: visible !important;
+}
+.slick-prev:before, .slick-next:before { 
+	font-family: "slick"; 
+	font-size: 40px; 
+	line-height: 1; 
+	color: red; 
+	opacity: 0.75; 
+	-webkit-font-smoothing: antialiased; 
+	-moz-osx-font-smoothing: grayscale; 
+}
+.col-panel{
+	padding-left: 130px;
+    padding-right: 30px;
+}
+.panel-body{
+	width: 1414px;
+    padding-left: 53px;
+    padding-right: 252px;
+}
+.movie{
+	padding-left: 60px;
+}
