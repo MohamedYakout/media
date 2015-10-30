@@ -53,4 +53,4 @@ end
 gem 'haml-rails'
 
 
-
+gem 'slick_rails'
