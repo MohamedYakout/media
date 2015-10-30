@@ -19,5 +19,3 @@
 //= require slick
 //= require movies
 
-
-

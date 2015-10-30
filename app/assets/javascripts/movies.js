@@ -1,4 +1,48 @@
-$(document).ready(function(){
+function reloadSlick () {
+	// body...
+	console.log("Here");
+	if ($('.slider-movies-js').length > 0) {
+		$('.slider-movies-js').slick({
+			dots: true,
+			arrows: true, 
+			infinite: false,
+			speed: 300,
+			slidesToShow: 3,
+			slidesToScroll: 3,
+			respondTo: 'slider', 
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3
+					}
+				},
+				{
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			]
+		});
+
+	};
+}
+
+$(document).on('ready page:load', function(event) {
+  // apply non-idempotent transformations to the body
 	jwplayer.key	=	'o4s2sJoIs5Ygkjs7m8ZtPh/39eIhkhzOLWPrbGhOg3k=';	
 
 
@@ -28,47 +72,15 @@ $(document).ready(function(){
 
 	});
 
-	$('.slider-movies-js').slick({
-		dots: true,
-		arrows: true, 
-		infinite: false,
-		speed: 300,
-		slidesToShow: 3,
-		slidesToScroll: 3,
-		respondTo: 'slider', 
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 3
-				}
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2
-				}
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1
-				}
-			}
-			// You can unslick at a given breakpoint now by adding:
-			// settings: "unslick"
-			// instead of a settings object
-		]
-	});
+	$('.tab-js').removeClass('active');
+	if (window.location.href.indexOf("watched_movies") != -1) {
+		$('.history-js').addClass('active');
+	}else if(window.location.href.indexOf("movies") != -1){
+		$('.home-js').addClass('active');
+	};
 
-	// $('button.slick-prev').click(function(){
-	//     $("#movie_slider").slickPrev();
-	// });
-
-	// $('button.slick-next').click(function(){
-	//     $("#movie_slider").slickNext();
-	// });
+	if ($('.slider-movies-js').length > 0) {
+		reloadSlick();	
+	}
 });
+

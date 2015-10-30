@@ -1,3 +1,6 @@
+#movies
+= render 'shared/nav'
+
 #current_movie
 .container
   .row
@@ -11,5 +14,6 @@
               - @movies.each do |movie|
                 .movie
                   %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
-                    %img{"data-lazy" => "#{movie.images[0]['url']}"}
+                    //%img{"data-lazy" => "#{movie.images[0]['url']}"}
+                    = image_tag(movie.images[0]['url'])
                     = movie.title
