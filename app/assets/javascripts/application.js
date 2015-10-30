@@ -16,6 +16,7 @@
 //= require bootstrap.min
 //= require jwplayer
 //= require jwplayer.html5
+//= require slick
 //= require movies
 
 

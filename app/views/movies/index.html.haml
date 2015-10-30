@@ -1,13 +1,14 @@
-%h1 Listing movies
-
 #current_movie
 
-- @movies.each do |movie|
-  .media
-    .media-left
-      %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
-        = image_tag(movie.images[0]['url'], size: 64, alt: "icon")
-    .media-body
-      %h4.media-heading 
-        = movie.title
-      = movie.description
+.row
+  .col-md-11.col-panel
+    .panel.panel-primary
+      .panel-heading
+        %h3 Listing movies
+      .panel-body
+        .row.slider-movies-js.carsoule#movie_slider
+          - @movies.each do |movie|
+            .movie.col-lg-3.col-md-4.col-sm-12.col-xs-12
+              %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
+                %img{"data-lazy" => "#{movie.images[0]['url']}"}
+                = movie.title

@@ -13,4 +13,7 @@
  *= require_self
  *= require bootstrap.min
  *= require bootstrap-theme.min
+ *= require slick
+ *= require slick-theme
+ *= require movies
  */
