@@ -1,0 +1,9 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.tab-js.home-js
+          = link_to "Home", movies_path
+        %li.tab-js.history-js
+          = link_to "History", users_watched_movies_path 
