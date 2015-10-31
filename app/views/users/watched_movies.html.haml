@@ -1,3 +1,18 @@
 = render 'shared/nav'
 
-%h1= current_user.email
+.container
+  .row
+    .col-md-12.col-panel
+      .slides-container
+        .panel.panel-primary
+          .panel-heading
+            %h3 Your Movies
+          .panel-body
+            - @movies_ids.each do |movie_id|
+              - movie = Movie.find(movie_id)
+              .media
+                .media-left
+                  = image_tag(movie.images[0]['url'])
+                .media-body
+                  %h4.media-heading= movie.title
+                  = movie.description

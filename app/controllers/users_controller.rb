@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	# Watched Movies
 	def watched_movies
-		@movies = current_user.watched_movies
+		@movies_ids = current_user.watched_movies
 	end
 
 	def add_watched_movies
