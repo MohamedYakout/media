@@ -133,3 +133,12 @@ test:
         read:
           mode: primary
         max_pool_size: 1
+
+production:
+  sessions:
+    default:
+      database: accedo_media_production
+      username: yakout_accedo
+      password: yakout_accedo
+      hosts:
+        - localhost:13467
