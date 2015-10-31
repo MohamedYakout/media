@@ -53,6 +53,7 @@ $(document).on('ready page:load', function(event) {
 		console.log(movie_url);
 		console.log(image_url);
 		var currentVideoPlayer = 'current_movie';
+		$(".current-movie-js").attr('movie_id', $(this).attr('movie_id'));
 
 		setTimeout(function(){
 			jwplayer(currentVideoPlayer).setup({
@@ -63,8 +64,21 @@ $(document).on('ready page:load', function(event) {
 			});
 			jwplayer(currentVideoPlayer).onReady(function(){
 				console.log("Ready");
+				var current_id = $(".current-movie-js").attr('movie_id');
+				console.log($(".current-movie-js").attr('movie_id'));
+				$.ajax({
+				    type: "PUT",
+				    url: "/users/add_watched_movies/" + current_id,
+				    contentType: "application/json; charset=utf-8",
+				    dataType: "json",
+				    success: function(data){
+				    	alert(data);
+				    },
+				    failure: function(errMsg) {
+				        alert(errMsg);
+				    }
+				});
 			});
-
 			jwplayer(currentVideoPlayer).onComplete(function() {
 				console.log("Complete")
 			})

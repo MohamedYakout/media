@@ -25,7 +25,7 @@ class User
   field :last_sign_in_ip,    type: String
 
 
-  embeds_many :watched_movies, class_name:"Movie"
+  field :watched_movies, type: Array, default: []
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time
@@ -36,4 +36,9 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  def watch_movie(movie)
+    self.watched_movies << movie.id.to_s
+    self.save!
+  end
 end

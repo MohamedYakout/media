@@ -6,7 +6,9 @@ class UsersController < ApplicationController
 	end
 
 	def add_watched_movies
-		@movie = Movie.find(params[:movie_id])
+		movie = Movie.find(params[:movie_id])
+		current_user.watch_movie(movie)
+		render :nothing => true, :status => 200
 	end
 
 	def delete_watched_movies

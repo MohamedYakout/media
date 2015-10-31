@@ -2,6 +2,7 @@
 = render 'shared/nav'
 
 #current_movie
+.current-movie-js.hide{:movie_id => ""}
 .container
   .row
     .col-md-12.col-panel
@@ -13,7 +14,7 @@
             .slider-movies-js.carsoule#movie_slider
               - @movies.each do |movie|
                 .movie
-                  %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}"}
+                  %a.select-movie-js{:href => "#", :movie_url => "#{movie.contents[0]['url']}", :image_url => "#{movie.images[0]['url']}", :movie_id => "#{movie.id}"}
                     //%img{"data-lazy" => "#{movie.images[0]['url']}"}
                     = image_tag(movie.images[0]['url'])
                     = movie.title
