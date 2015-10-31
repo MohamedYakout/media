@@ -42,3 +42,7 @@ a:focus,.slick-slide:focus{
 .slick-next{
     padding-right: 36px;
 }*/
+.right-side{
+	position:relative;
+    right:-97%;
+}

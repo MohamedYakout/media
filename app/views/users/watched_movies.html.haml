@@ -11,6 +11,9 @@
             - @movies_ids.each do |movie_id|
               - movie = Movie.find(movie_id)
               .media
+                %span.right-side
+                  %a{:href => '#'}
+                    %i.fa.fa-remove.fa-close.fa-times.fa-3x
                 .media-left
                   = image_tag(movie.images[0]['url'])
                 .media-body
