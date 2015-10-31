@@ -134,11 +134,10 @@ test:
           mode: primary
         max_pool_size: 1
 
-production:
+production:   
   sessions:
     default:
-      database: accedo_media_production
-      username: yakout_accedo
-      password: yakout_accedo
-      hosts:
-        - localhost:13467
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      options:
+        skip_version_check: true
+        safe: true
