@@ -1,9 +1,18 @@
 %nav.navbar.navbar-default
-  .container-fluid
+  .container-fluid 
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li.tab-js.home-js
           = link_to "Home", movies_path
         %li.tab-js.history-js
-          = link_to "History", users_watched_movies_path 
+          = link_to "History", users_watched_movies_path
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            = current_user.email
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              = link_to "Sign out", destroy_user_session_path, :method => :delete
+    / /.navbar-collapse
