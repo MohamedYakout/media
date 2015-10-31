@@ -38,7 +38,12 @@ class User
   # field :locked_at,       type: Time
 
   def watch_movie(movie)
-    self.watched_movies << movie.id.to_s
+    self.watched_movies.unshift(movie.id.to_s)
+    self.save!
+  end
+
+  def delete_movie(movie_index)
+    self.watched_movies.delete_at(movie_index.to_i)
     self.save!
   end
 end

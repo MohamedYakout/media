@@ -68,16 +68,12 @@ $(document).on('ready page:load', function(event) {
 				console.log($(".current-movie-js").attr('movie_id'));
 				$.ajax({
 				    type: "PUT",
-				    url: "/users/add_watched_movies/" + current_id,
-				    contentType: "application/json; charset=utf-8",
-				    dataType: "json",
-				    success: function(data){
-				    	alert(data);
-				    },
-				    failure: function(errMsg) {
-				        alert(errMsg);
-				    }
-				});
+				    url: "/users/add_watched_movies/" + current_id
+				}).success(function(data){
+			    	console.log(data);
+			    }).error(function(errMsg) {
+			        console.log(errMsg);
+			    });
 			});
 			jwplayer(currentVideoPlayer).onComplete(function() {
 				console.log("Complete")
@@ -96,5 +92,22 @@ $(document).on('ready page:load', function(event) {
 	if ($('.slider-movies-js').length > 0) {
 		reloadSlick();	
 	}
+
+	$('.remove-movie-js').on('click', function(){
+		console.log(this);
+		var movie_element = $(this).parent();
+		var movie_index = $(this).attr('movie_index');
+		$.ajax({
+		    type: "DELETE",
+		    url: "/users/delete_watched_movies/" + movie_index
+		}).success(function(data){
+	    	console.log(data);
+	    	movie_element.slideUp(300,function() {
+                movie_element.remove();
+            });
+	    }).error(function(errMsg) {
+	        console.log(errMsg);
+	    });
+	});
 });
 

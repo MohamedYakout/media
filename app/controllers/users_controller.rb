@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 	end
 
 	def delete_watched_movies
-		@movie = Movie.find(params[:movie_id])
+		current_user.delete_movie(params[:movie_index])
+		render :nothing => true, :status => 200
 	end
 end

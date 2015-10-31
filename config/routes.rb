@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Watched list for movies
   get 'users/watched_movies', :to => 'users#watched_movies'
   put 'users/add_watched_movies/:movie_id', :to => 'users#add_watched_movies'
-  delete 'users/add_watched_movies/:movie_id', :to => 'users#delete_watched_movies'
+  delete 'users/delete_watched_movies/:movie_index', :to => 'users#delete_watched_movies'
 
   root 'movies#index'
   authenticated :user do
