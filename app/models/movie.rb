@@ -10,7 +10,7 @@ class Movie
   field :publishedDate, type: Integer
   field :availableDate, type: Integer
 
-  field :metadata, type: Array, default: [{"value": "en", "name": "language"}]
+  field :metadata, type: Array, default: [{"value" => "en", "name" => "language"}]
 
   field :contents, type: Array
   field :credits, type: Array
