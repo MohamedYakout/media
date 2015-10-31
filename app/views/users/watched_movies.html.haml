@@ -1,0 +1,22 @@
+= render 'shared/nav'
+
+.container
+  .row
+    .col-md-12.col-panel
+      .slides-container
+        .panel.panel-primary
+          .panel-heading
+            %h3 Your Movies
+          .panel-body
+            - @movies_ids.each_with_index do |movie_id, index|
+              - movie = Movie.find(movie_id)
+              .media
+                %span.right-side.remove-movie-js{:movie_index => index}
+                  %a{:href => "javascript:void(0)"}
+                    %i.fa.fa-remove.fa-close.fa-times.fa-3x
+                .media-left
+                  = image_tag(movie.images[0]['url'])
+                .media-body
+                  %h4.media-heading= movie.title
+                  = movie.description
+
