@@ -7,6 +7,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require 'rails/mongoid'
 require 'mongoid'
+require 'mongo'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -31,6 +32,5 @@ module Media
     # config.active_record.raise_in_transactional_callbacks = true
 
     config.autoload_paths << Rails.root.join('lib')
-
   end
 end

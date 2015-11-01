@@ -54,3 +54,9 @@ gem 'haml-rails'
 
 
 gem 'slick_rails'
+
+gem 'puma'
+
+group :production do
+  gem 'thin'
+end
