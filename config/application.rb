@@ -12,7 +12,6 @@ require 'mongo'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Mongoid.load!('config/mongoid.yml')
 
 module Media
   class Application < Rails::Application
