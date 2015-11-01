@@ -134,12 +134,11 @@ test:
           mode: primary
         max_pool_size: 1
 
-<% if ENV['MONGOHQ_URL'] %>
-  production:
-    sessions:
-      default:
-        uri: <%= ENV['MONGOHQ_URL'] %>
-        options:
-          skip_version_check: true
-          safe: true
-<% end %>
+production:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      options:
+        skip_version_check: true
+        safe: true
+
