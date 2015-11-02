@@ -134,16 +134,17 @@ test:
           mode: primary
         max_pool_size: 1
 
-
-<% uri = URI.parse(ENV['MONGOHQ_URL']) %>
-production:
-  sessions:
-    default:
-      database: <%= uri.path.sub('/','') %>
-      username: <%= uri.user %>
-      password: <%= uri.password %>
-      hosts:
-        - <%= uri.host %>:<%= uri.port %>
+<% if ENV['MONGOHQ_URL'] %>
+  <% uri = URI.parse(ENV['MONGOHQ_URL']) %>
+  production:
+    sessions:
+      default:
+        database: <%= uri.path.sub('/','') %>
+        username: <%= uri.user %>
+        password: <%= uri.password %>
+        hosts:
+          - <%= uri.host %>:<%= uri.port %>
+<% end %>
 
 
 
