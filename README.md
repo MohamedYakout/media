@@ -56,10 +56,12 @@ To install gems in Gemfile:
 ```
 bundle install
 ```
+## Load the movies from URL & Open Server
 Then open rails console to load the given list of movie in the following URL [https://demo2697834.mockable.io/movies](https://demo2697834.mockable.io/movies)
 ```
 rails c
 Movie.add_movies_to_db
+exit
 ```
 Then you can open the server and test it on your localhost: 
 ```
